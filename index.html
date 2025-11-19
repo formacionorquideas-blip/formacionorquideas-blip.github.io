@@ -1,7 +1,92 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>Formación Orquídeas</h1>
-    <p>Sitio en construcción 🌱</p>
-  </body>
-</html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formación Orquídeas — Pronto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #3b0f5f;
+      --bg2: #6b1fa3;
+      --card: rgba(255,255,255,0.06);
+      --glass: rgba(255,255,255,0.08);
+      --accent: #ffd6fb;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.04), transparent),
+                  linear-gradient(180deg,var(--bg1), var(--bg2) 65%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .card{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:34px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .left{
+      padding: 12px 18px;
+    }
+
+    h1{
+      margin:0 0 10px 0;
+      font-size: clamp(22px, 3.4vw, 40px);
+      letter-spacing: -0.02em;
+      line-height:1.05;
+      color: #fff;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color: rgba(255,255,255,0.88);
+      font-weight:300;
+      font-size:1.05rem;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      background: linear-gradient(90deg, rgba(255,214,251,0.18), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.09);
+      color:var(--accent);
+      box-shadow: 0 6px 18px rgba(107,31,163,0.18);
+    }
+
+    .sub{
+      margin-top:12px;
+      font-size:0.88rem;
+      color:rgba(255,255,255,0.7);
+    }
+
+    /* Orchid area */
+    .orchid-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+    .orb{
+      width:100%;
+      max-width:380px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)
