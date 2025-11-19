@@ -1,118 +1,950 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Formación Orquídeas — Pronto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root{
-      --card: rgba(255,255,255,0.06);
-      --accent: #ffd6fb;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-
-    body{
-      margin:0;
-      font-family:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#fff;
-      -webkit-font-smoothing: antialiased;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:32px;
-
-      /* FONDO NUEVO */
-      background-image: url("NuevoFondo.png");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-    }
-
-    .card{
-      width:100%;
-      max-width:980px;
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;
-      align-items:center;
-      background: rgba(0,0,0,0.35);
-      border-radius:18px;
-      padding:34px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px) saturate(140%);
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-
-    h1{
-      margin:0 0 10px 0;
-      font-size: clamp(22px, 3.4vw, 40px);
-      letter-spacing:-0.02em;
-      line-height:1.05;
-      color:#fff;
-    }
-
-    p.lead{
-      margin:0 0 18px 0;
-      color:rgba(255,255,255,0.88);
-      font-weight:300;
-      font-size:1.05rem;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:10px 16px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      color:#ffd6fb;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    }
-
-    .orchid-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-    }
-
-    /* Imagen decorativa */
-    .orchid-img{
-      width:100%;
-      max-width:330px;
-      filter: drop-shadow(0 0 18px rgba(255,255,255,0.35));
-    }
-
-    @media(max-width:800px){
-      .card{
-        grid-template-columns:1fr;
-        text-align:center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Programa de Formación Orquídeas - Iniciativa pedagógica para reducir comportamientos nocivos en el ámbito organizacional mediante el desarrollo de habilidades y conocimientos en ética.">
+    <meta name="keywords" content="formación, ética, organizacional, módulos, corrupción, liderazgo, bienestar, género">
+    <meta name="author" content="Programa de Formación Orquídeas">
+    <meta property="og:title" content="Programa de Formación Orquídeas">
+    <meta property="og:description" content="Disfruta y aumenta tu conocimiento con nuestros 8 módulos de formación ética organizacional">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="192x192" href="images/logo192.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <title>Programa de Formación Orquídeas</title>
+    <style>
+        @font-face {
+            font-family: 'SourceSans3';
+            src: url('fonts/SourceSans3-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'SourceSans3';
+            src: url('fonts/SourceSans3-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: 'SourceSans3';
+            src: url('fonts/SourceSans3-Light.ttf') format('truetype');
+            font-weight: 300;
+        }
+        
+        :root {
+            --color-purple-primary: #a51ed6;
+            --color-purple-secondary: #b78fd9;
+            --color-purple-dark: #85558c;
+            --color-white: #ffffff;
+            --color-light-bg: rgba(238, 201, 245, 0.434);
+            --color-card-bg: rgba(255, 255, 255, 0.95);
+            --shadow-soft: 0 8px 32px rgba(165, 30, 214, 0.1);
+            --shadow-hover: 0 16px 48px rgba(165, 30, 214, 0.15);
+            --shadow-card: 0 4px 20px rgba(133, 85, 140, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SourceSans3', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .section h2 {
+            color: var(--color-purple-dark);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-purple-primary), var(--color-purple-secondary));
+            border-radius: 2px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--color-purple-primary), var(--color-purple-secondary));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: var(--color-white);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            margin-bottom: 30px;
+            z-index: 1;
+        }
+        
+        .hero-image {
+            z-index: 1;
+        }
+        
+        .hero-image img {
+            border-radius: 50%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--color-white);
+            padding: 15px 35px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background: var(--color-white);
+            color: var(--color-purple-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+        }
+        
+        .stats-section {
+            background: var(--color-light-bg);
+            border-radius: 80px 80px 0 0;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(165, 30, 214, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--color-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--color-purple-primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-purple-dark);
+            margin-bottom: 5px;
+        }
+        
+        .methodology-section {
+            background: 
+                linear-gradient(135deg, rgba(165, 30, 214, 0.08), rgba(183, 143, 217, 0.12)),
+                radial-gradient(circle at 70% 30%, rgba(238, 201, 245, 0.15) 0%, transparent 50%);
+            margin-bottom: 80px;
+            border-radius: 80px 80px 0 0;
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .method-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--color-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(165, 30, 214, 0.1);
+        }
+        
+        .method-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--color-purple-primary);
+        }
+        
+        .method-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            color: var(--color-purple-primary);
+        }
+        
+        .method-card h3 {
+            color: var(--color-purple-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .testimonials-section {
+            background: 
+                linear-gradient(135deg, rgba(183, 143, 217, 0.15), rgba(165, 30, 214, 0.08)),
+                radial-gradient(circle at 30% 70%, rgba(238, 201, 245, 0.2) 0%, transparent 50%);
+            margin-bottom: 80px;
+            border-radius: 0 0 80px 80px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--color-purple-primary);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .testimonial-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--color-purple-primary);
+        }
+        
+        .testimonial-card h3 {
+            color: var(--color-purple-dark);
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-size: 0.9rem;
+            color: var(--color-purple-primary);
+            font-weight: 600;
+        }
+        
+        .modalities-section {
+            background: var(--color-light-bg);
+            padding: 100px 20px;
+            margin-bottom: 80px;
+            border-radius: 80px 80px 0 0;
+            position: relative;
+        }
+        
+        .modalities-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(165, 30, 214, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(183, 143, 217, 0.05) 0%, transparent 50%);
+            border-radius: 80px 80px 0 0;
+        }
+        
+        .modalities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .modality-card {
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+        
+        .modality-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .modality-header {
+            padding: 30px 25px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-purple-primary), var(--color-purple-secondary));
+            color: var(--color-white);
+        }
+        
+        .modality-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .modality-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        
+        .modality-features {
+            padding: 30px;
+            list-style: none;
+            margin: 0;
+        }
+        
+        .modality-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .modality-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-purple-primary);
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-purple-primary), var(--color-purple-secondary));
+            color: var(--color-white);
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            color: var(--color-white);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content h2::after {
+            background: var(--color-white);
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--color-white);
+            color: var(--color-purple-primary);
+            border-color: var(--color-white);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-white);
+            border-color: var(--color-white);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-white);
+            border-color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-white);
+            color: var(--color-purple-primary);
+        }
+        
+        .section h2 {
+            color: #85558c;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .about-content img {
+            margin-bottom: 20px;
+        }
+        
+        .about-flow {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-flow img {
+            flex-shrink: 0;
+        }
+        
+        .about-flow h3 {
+            color: #85558c;
+            margin-bottom: 15px;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .module-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            padding: 30px 20px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(165, 30, 214, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(145deg, transparent, rgba(165, 30, 214, 0.02));
+            pointer-events: none;
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-purple-primary), var(--color-purple-secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .module-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .module-card img {
+            margin: 0 auto 20px;
+            display: block;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        
+        .module-card:hover img {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .module-card h3 {
+            color: #85558c;
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--color-purple-primary), var(--color-purple-secondary));
+            color: var(--color-white);
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 3px solid var(--color-white);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="20" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="90" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .contact-item span:first-child {
+            font-size: 1.5rem;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--color-purple-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-top:hover {
+            background: var(--color-purple-secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-image img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .about-flow {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-flow img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="card">
-    <div class="left">
-      <h1>Formación Orquídeas</h1>
-      <p class="lead">
-        Muy pronto podrás disfrutar contenido exclusivo, cursos y formación especializada.
-      </p>
-      <a href="#" class="btn">Notificarme cuando abra</a>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Programa de Formación Orquídeas</h1>
+            <p>Disfruta y aumenta tu conocimiento...</p>
+            <a href="#about" class="btn">Conocer más</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/Flowers_landing.png" alt="Flores Orquídeas" width="200" height="200">
+        </div>
+    </section>
 
-    <!-- Imagen Orquidea decorativa -->
-    <div class="orchid-wrap">
-      <img src="Orquidea.png" alt="Orquídea" class="orchid-img">
-    </div>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="about-content">
+            <img src="images/LandingBook.png" alt="Libro de formación" width="200" height="200">
+            <h2>¡Bienvenid@s!</h2>
+            <p>El Programa de Formación Orquídeas –PFO– surge como una iniciativa pedagógica que busca reducir comportamientos nocivos en el ámbito organizacional mediante el desarrollo de habilidades y conocimientos en ética.</p>
+        </div>
+        <div class="about-flow">
+            <img src="images/LandingFlow.png" alt="Flujo de aprendizaje" width="150" height="150">
+            <div>
+                <h3>Disfruta e innova en conocimiento</h3>
+                <p>Esta apuesta formativa está diseñada para brindar a comunidades, organizaciones e individuos las herramientas necesarias para enfrentar problemáticas y crisis en entornos colaborativos.</p>
+            </div>
+        </div>
+    </section>
 
-  </div>
+    <!-- Modalities Section -->
+    <section class="section modalities-section">
+        <h2>Modalidades de Formación</h2>
+        <div class="modalities-grid">
+            <div class="modality-card presencial">
+                <div class="modality-header">
+                    <div class="modality-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Presencial</h3>
+                </div>
+                <ul class="modality-features">
+                    <li>Talleres dinámicos e interactivos</li>
+                    <li>Actividades corporales y reflexivas</li>
+                    <li>Construcción colectiva de conocimiento</li>
+                    <li>Metodologías participativas</li>
+                </ul>
+            </div>
+            <div class="modality-card virtual">
+                <div class="modality-header">
+                    <div class="modality-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Virtual</h3>
+                </div>
+                <ul class="modality-features">
+                    <li>Plataforma digital interactiva</li>
+                    <li>Contenidos multimedia</li>
+                    <li>Foros de participación</li>
+                    <li>Flexibilidad horaria</li>
+                </ul>
+            </div>
+            <div class="modality-card transversal">
+                <div class="modality-header">
+                    <div class="modality-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Transversal</h3>
+                </div>
+                <ul class="modality-features">
+                    <li>Enfoque integral</li>
+                    <li>Aplicación práctica</li>
+                    <li>Seguimiento continuo</li>
+                    <li>Adaptación contextual</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <h2>Nuestro Impacto</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Módulos de Formación</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Modalidades</div>
+                <div class="stat-sublabel">Presencial • Virtual • Transversal</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Enfoque Ético</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="section" id="modules">
+        <h2>Módulos</h2>
+        <p>El PFO contempla 8 módulos que abordan temáticas como la corrupción, la gestión de emociones, el reconocimiento de dilemas éticos, el liderazgo al servicio del talento, la perspectiva ambiental, la cultura de la paz, el bienestar para la construcción de espacios armónicos y la perspectiva de género para la eliminación de violencias cotidianas.</p>
+        
+        <div class="modules-grid">
+            <div class="module-card">
+                <img src="images/Violeta2.png" alt="Módulo Violeta" width="80" height="80">
+                <h3>Módulo Violeta</h3>
+                <p>Perspectiva de género</p>
+            </div>
+            
+            <div class="module-card">
+                <img src="images/Amarillo2.png" alt="Módulo Amarillo" width="80" height="80">
+                <h3>Módulo Amarillo</h3>
+                <p>Hablemos de corrupción</p>
+            </div>
+            
+            <div class="module-card">
+                <img src="images/Azul22.png" alt="Módulo Azul" width="80" height="80">
+                <h3>Módulo Azul</h3>
+                <p>Gestión de emociones</p>
+            </div>
+            
+            <div class="module-card">
+                <img src="images/Magenta22.png" alt="Módulo Magenta" width="80" height="80">
+                <h3>Módulo Magenta</h3>
+                <p>Liderazgo al servicio del talento</p>
+            </div>
+            
+            <div class="module-card">
+                <img src="images/Verde2.png" alt="Módulo Verde" width="80" height="80">
+                <h3>Módulo Verde</h3>
+                <p>Perspectiva ambiental</p>
+            </div>
+            
+            <div class="module-card">
+                <img src="images/Naranja2.png" alt="Módulo Naranja" width="80" height="80">
+                <h3>Módulo Naranja</h3>
+                <p>Construcción de paz</p>
+            </div>
+            
+            <div class="module-card">
+                <img src="images/AguaMarina2.png" alt="Módulo Aguamarina" width="80" height="80">
+                <h3>Módulo Aguamarina</h3>
+                <p>Bienestar organizacional</p>
+            </div>
+            
+            <div class="module-card">
+                <img src="images/Cafe22.png" alt="Módulo Café" width="80" height="80">
+                <h3>Módulo Café</h3>
+                <p>Dilemas éticos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <h2>Casos de Éxito</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-icon"><i class="fas fa-building"></i></div>
+                <h3>Organizaciones</h3>
+                <p>"El programa transformó nuestra cultura organizacional, reduciendo conflictos y mejorando el clima laboral significativamente."</p>
+                <div class="testimonial-author">- Empresa del sector público</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-icon"><i class="fas fa-users"></i></div>
+                <h3>Comunidades</h3>
+                <p>"Los talleres nos ayudaron a construir espacios de diálogo y a fortalecer nuestros vínculos comunitarios."</p>
+                <div class="testimonial-author">- Organización comunitaria</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Instituciones Educativas</h3>
+                <p>"Implementamos los módulos y vimos una mejora notable en la convivencia y los valores éticos."</p>
+                <div class="testimonial-author">- Institución educativa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="section methodology-section">
+        <h2>Nuestra Metodología</h2>
+        <div class="methodology-grid">
+            <div class="method-card">
+                <div class="method-icon"><i class="fas fa-bullseye"></i></div>
+                <h3>Enfoque Práctico</h3>
+                <p>Actividades dinámicas y reflexivas que conectan la teoría con la realidad organizacional</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Participativo</h3>
+                <p>Metodología colaborativa que fomenta el diálogo y la construcción colectiva de conocimiento</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Transformador</h3>
+                <p>Herramientas para el cambio personal y organizacional hacia entornos más éticos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para Transformar tu Organización?</h2>
+            <p>Únete al Programa de Formación Orquídeas y desarrolla una cultura ética sólida</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Contáctanos</a>
+                <a href="#modules" class="btn btn-secondary">Ver Módulos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <h3>Contacto</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span><i class="fas fa-envelope"></i></span>
+                <span>formacionorquideas@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span><i class="fas fa-phone"></i></span>
+                <span>3014435952</span>
+            </div>
+        </div>
+        <p style="margin-top: 20px;">&copy; 2025 Programa de Formación Orquídeas</p>
+    </footer>
 </body>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTop" class="scroll-top" onclick="scrollToTop()">↑</button>
+
+<script>
+    // Scroll to top functionality
+    window.onscroll = function() {
+        const scrollBtn = document.getElementById('scrollTop');
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    };
+
+    function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    // Contact info click handlers
+    document.querySelectorAll('.contact-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const text = this.querySelector('span:last-child').textContent;
+            if (text.includes('@')) {
+                window.open(`mailto:${text}`, '_blank');
+            } else {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Número copiado al portapapeles');
+                });
+            }
+        });
+    });
+</script>
 </html>
